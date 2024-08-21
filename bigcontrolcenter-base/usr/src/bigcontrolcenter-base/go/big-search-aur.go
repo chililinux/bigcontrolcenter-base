@@ -6,7 +6,7 @@
     Chili GNU/Linux - https://chilios.com.br
 
   Created: 2024/08/13
-  Altered: 2024/08/17 - 02h22
+  Altered: 2024/08/21 - 00h34
 
   Copyright (c) 2024-2024, Vilmar Catafesta <vcatafesta@gmail.com>
   All rights reserved.
@@ -51,7 +51,7 @@ import (
 const (
 	_APP_       = "big-search-aur"
 	_PKGDESC_   = "Command-line AUR helper"
-	_VERSION_   = "0.17.0222-20240817"
+	_VERSION_   = "0.21.0034-20240821"
 	_COPYRIGHT_ = "Copyright (C) 2024 Vilmar Catafesta, <vcatafesta@gmail.com>"
 )
 
@@ -169,8 +169,10 @@ func parseArgs() bool {
 			verbose = true
 		case "--help":
 			printUsage()
+			return false
 		case "--bash":
 			helpBash()
+			return false
     case "-V", "--version":
       fmt.Println(Red + _APP_ + " - " + _PKGDESC_ + Reset)
       fmt.Println(Cyan + _APP_ + " - v" + _VERSION_ + Reset)
@@ -199,6 +201,10 @@ func parseArgs() bool {
 				searchTerms = append(searchTerms, args[i])
 			}
 		}
+	}
+	if searchMode == "" && len(searchTerms) == 0 {
+		logError("Erro: requer um argumento de busca válido, -Si ou -Ss")
+		return false
 	}
 	return true
 }
@@ -262,8 +268,8 @@ by_pairs_with_read() {
 
 func printUsage() {
 	fmt.Println("Uso:")
-	fmt.Printf("%s%-20s %s%s%s%s%s\n", blue, "  --Ss, --search", green, "<palavra-chave> ... <opção>", cyan, " # pesquisa no repositório AUR por palavras coincidentes", reset)
-	fmt.Printf("%s%-20s %s%s%s%s%s\n", blue, "  --Si, --info", green, "<palavra-chave> ... <opção>", cyan, " # pesquisa no repositório AUR por palavras coincidentes", reset)
+	fmt.Printf("%s%-20s %s%s%s%s%s\n", blue, "  -Ss, --search", green, "<palavra-chave> ... <opção>", cyan, " # pesquisa no repositório AUR por palavras coincidentes", reset)
+	fmt.Printf("%s%-20s %s%s%s%s%s\n", blue, "  -Si, --info", green, "<palavra-chave> ... <opção>", cyan, " # pesquisa no repositório AUR por palavras coincidentes", reset)
 	fmt.Println("    <palavras-chave> são os termos/pacotes de busca")
 	fmt.Println("    <opção> podem ser:")
 	fmt.Printf("%s%-20s %s%s%s\n", blue, "  --by-name", reset, "Pesquisa pelo nome do pacote apenas (padrão)", reset)
