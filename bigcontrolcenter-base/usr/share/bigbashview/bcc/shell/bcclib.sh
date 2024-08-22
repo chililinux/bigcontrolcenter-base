@@ -79,6 +79,11 @@ export TICK="${white}[${COL_LIGHT_GREEN}✓${COL_NC}${white}]"
 export CROSS="${white}[${COL_LIGHT_RED}✗${COL_NC}${white}]"
 export INFO="[i]"
 
+log_info() {
+	printf " %b %s\\n" "${INFO}" "${*}"
+}
+export -f log_info
+
 log_msg() {
 	printf " %b %s\\n" "${TICK}" "${*}"
 }
