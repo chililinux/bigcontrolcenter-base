@@ -2,9 +2,7 @@
 
 pkgname=bigcontrolcenter-base
 pkgdesc="Base files and libs to bigcontrolcenter interfaces"
-# makedepends=('')
-# conflicts=('')
-pkgver=$(date +%y.%m.%d)
+pkgver=$(date +%Y%m%d)
 pkgrel=$(date +%H%M)
 arch=('any')
 license=('GPL3')
