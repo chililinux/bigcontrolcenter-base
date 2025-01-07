@@ -9,10 +9,8 @@ license=('GPL3')
 url="https://github.com/chililinux/$pkgname"
 source=("git+${url}.git")
 provides=("$pkgname")
-depends=('bash'
-	'curl'
-	'coreutils'  	# cat, cut, mkdir,rmdir, rm, sort, uniq, ... etc
-	'util-linux' 	# rev
+depends=('bash')
+optdepends=('curl'
 	'gawk'
 	'grep'
 	'jq'
