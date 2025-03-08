@@ -3,17 +3,17 @@
   "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
 
 <Menu>
-    <Name>Biglinux</Name>
+    <Name>Google</Name>
     <Menu>
-       <Name>Biglinux</Name>
-        <Directory>xfce-biglinux.directory</Directory>
+       <Name>Google</Name>
+        <Directory>google-apps.directory</Directory>
         <Layout>
             <Merge type="menus" />
             <Merge type="files" />
-            <Menuname>Biglinux</Menuname>
+            <Menuname>Google</Menuname>
         </Layout>
         <Include>
-            <Category>Biglinux</Category>
+            <Category>Google</Category>
         </Include>
     </Menu>
 </Menu>
